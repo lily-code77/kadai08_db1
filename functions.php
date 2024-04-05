@@ -27,3 +27,50 @@ function setToken() {
 
     return $csrf_token;
 }
+
+/**
+ * ファイルデータを保存
+ * @param string $login_user ログイン中のユーザー名
+ * @param string $recipe_name レシピ名
+ * @param string $filename ファイル名
+ * @param string $save_path 保存先のパス
+ * @param string $ingredients 材料
+ * @param string $instructions 作り方
+ * @param string $episode レシピのエピソード
+ * @return bool $result
+ */
+function fileSave($login_user, $recipe_name, $filename, $save_path, $ingredients, $instructions, $episode)
+{
+    $result = False;
+
+    $sql = "INSERT INTO recipe_registration (user_id, recipe_name, file_name, file_path, ingredients, instructions, episode) VALUE (?, ?, ?, ?, ?, ?, ?)";
+
+    try {
+        $stmt = connect()->prepare($sql);
+        $stmt->bindValue(1, $login_user['name']);
+        $stmt->bindValue(2, $recipe_name);
+        $stmt->bindValue(3, $filename);
+        $stmt->bindValue(4, $save_path);
+        $stmt->bindValue(5, $ingredients);
+        $stmt->bindValue(6, $instructions);
+        $stmt->bindValue(7, $episode);
+        $result = $stmt->execute();
+        return $result;
+    } catch (\Exception $e) {
+        echo $e->getMessage();
+        return $result;
+    }
+}
+
+/**
+ * ファイルデータを取得
+ * @return array $fileData
+ */
+function getAllFile()
+{
+    $sql = "SELECT * FROM recipe_registration";
+
+    $fileData = connect()->query($sql);
+
+    return $fileData;
+}

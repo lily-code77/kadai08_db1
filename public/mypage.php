@@ -2,6 +2,7 @@
 session_start();
 require_once '../classes/UserLogic.php';
 require_once '../functions.php';
+require_once '../dbconnect.php';
 
 // ログインしているか判定し、していなかったら新規登録画面へ返す
 $result = UserLogic::checkLogin();
@@ -14,6 +15,7 @@ if (!$result) {
 
 $login_user = $_SESSION['login_user'];
 
+$files = getAllFile();
 ?>
 
 <!DOCTYPE html>
@@ -39,11 +41,18 @@ $login_user = $_SESSION['login_user'];
             <input type="file" name="img" accept="image/*"><br>
             材料：<br><input type="text" name="ingredients" class="input big"><br>
             作り方：<br><input type="text" name="instructions" class="input big"><br>
-            レシピのエピソード：<br><textarea name="memo" id="textarea" cols="70" rows="10"></textarea><br>
+            レシピのエピソード：<br><textarea name="episode" id="textarea" cols="70" rows="10"></textarea><br>
         </div>
         <button id="b" type="submit">作成</button>
     </form>
-
+    <h3>マイレシピ　コレクション</h3>
+    <div>
+        <?php foreach ($files as $file) :?>
+            <img src="<?php echo "{$file['file_path']}"; ?>" alt="" width="200px">
+            <p><?php echo "{$file['recipe_name']}"; ?></p>
+            <p><?php echo "{$file['file_path']}"; ?></p>
+        <?php endforeach; ?>
+    </div>
     <form action="logout.php" method="POST">
         <input type="submit" name="logout" value="ログアウト">
     </form>
