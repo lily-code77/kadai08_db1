@@ -5,7 +5,7 @@ PHP2 - DB連携サービス（作成・参照）
 - 
 
 ## ③DEMO
-https://recipelab.sakura.ne.jp/
+https://recipelab.sakura.ne.jp/kadai08_db1/public/signup_form.php
 
 ## ④工夫した点・こだわった点
 - 
