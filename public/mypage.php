@@ -31,9 +31,9 @@ $login_user = $_SESSION['login_user'];
     <!-- <p>メールアドレス：<?php echo h($login_user['email']) ?></p> -->
 
     <h2>マイレシピ登録</h2>
-    <form action="write.php" method="post" enctype="multipart/form-data">
+    <form action="file_upload.php" method="post" enctype="multipart/form-data">
         <div class="content">
-            料理名：<br><input type="text" name="name" class="input"><br>
+            料理名：<br><input type="text" name="recipe_name" class="input"><br>
             写真(.png、.jpg、.gifのみ対応)：<br>
             <input type="hidden" name="MAX_FILE_SIZE" value="1048576" />
             <input type="file" name="img" accept="image/*"><br>
