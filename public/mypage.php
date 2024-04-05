@@ -39,25 +39,7 @@ $login_user = $_SESSION['login_user'];
             <input type="file" name="img" accept="image/*"><br>
             材料：<br><input type="text" name="ingredients" class="input big"><br>
             作り方：<br><input type="text" name="instructions" class="input big"><br>
-            キーワード (複数選択可能)：
-            <div class="keywordSelect">
-                <div>
-                    <input type="checkbox" name="keyword[]" value="わくわく">
-                    <label for="wakuwaku">わくわく</label>
-                </div>
-                <div>
-                    <input type="checkbox" name="keyword[]" value="癒された">
-                    <label for="iyasareta">癒された</label>
-                </div>
-                <div>
-                    <input type="checkbox" name="keyword[]" value="緊張する">
-                    <label for="kinchousuru">緊張する</label>
-
-                </div>
-            </div>
-
-            レシピ背景：<br><textarea name="memo" id="textarea" cols="70" rows="10"></textarea><br>
-            完成：<input type="radio" name="yesNo" value="yes">YES<input type="radio" name="yesNo" value="no">NO<br>
+            レシピのエピソード：<br><textarea name="memo" id="textarea" cols="70" rows="10"></textarea><br>
         </div>
         <button id="b" type="submit">作成</button>
     </form>
