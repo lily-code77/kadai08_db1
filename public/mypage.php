@@ -24,7 +24,14 @@ $files = getAllFile();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>マイページ</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
+
+    <title>紡くっく | マイページ</title>
 </head>
 
 <body>
@@ -43,7 +50,7 @@ $files = getAllFile();
             作り方：<br><input type="text" name="instructions" class="input big"><br>
             レシピのエピソード：<br><textarea name="episode" id="textarea" cols="70" rows="10"></textarea><br>
         </div>
-        <button id="b" type="submit">作成</button>
+        <button class="b" type="submit">作成</button>
     </form>
     <h3>マイレシピ　コレクション</h3>
     <div>
@@ -57,7 +64,7 @@ $files = getAllFile();
         <?php endforeach; ?>
     </div>
     <form action="logout.php" method="POST">
-        <input type="submit" name="logout" value="ログアウト">
+        <input class="b" type="submit" name="logout" value="ログアウト">
     </form>
 
 </body>

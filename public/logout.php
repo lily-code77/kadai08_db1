@@ -10,7 +10,7 @@ if (!$logout = filter_input(INPUT_POST, 'logout')) {
 $result = UserLogic::checkLogin();
 
 if (!$result) {
-    exit('セッションが切れましたので、ログインし直してください。');//セッション期限のデフォルトは24分。24分間、マイページ上で何もしないとセッションが切れてしまう。
+    exit('セッションが切れましたので、ログインし直してください。'); //セッション期限のデフォルトは24分。24分間、マイページ上で何もしないとセッションが切れてしまう。
 }
 
 // ログアウトする
@@ -24,7 +24,14 @@ UserLogic::logout();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ログアウト</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
+
+    <title>紡くっく | ログアウト</title>
 </head>
 
 <body>
