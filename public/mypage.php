@@ -47,10 +47,13 @@ $files = getAllFile();
     </form>
     <h3>マイレシピ　コレクション</h3>
     <div>
-        <?php foreach ($files as $file) :?>
+        <?php foreach ($files as $file) : ?>
             <img src="<?php echo "{$file['file_path']}"; ?>" alt="" width="200px">
-            <p><?php echo "{$file['recipe_name']}"; ?></p>
-            <p><?php echo "{$file['file_path']}"; ?></p>
+            <p><?php echo "レシピ名：" . "{$file['recipe_name']}"; ?></p>
+            <p><?php echo "材料：" . "{$file['ingredients']}"; ?></p>
+            <p><?php echo "作り方：" . "{$file['instructions']}"; ?></p>
+            <p><?php echo "レシピのエピソード：" . "{$file['episode']}"; ?></p>
+            <!-- <p><?php echo "{$file['file_path']}"; ?></p> -->
         <?php endforeach; ?>
     </div>
     <form action="logout.php" method="POST">
