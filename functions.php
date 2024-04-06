@@ -47,7 +47,7 @@ function fileSave($login_user, $recipe_name, $filename, $save_path, $ingredients
 
     try {
         $stmt = connect()->prepare($sql);
-        $stmt->bindValue(1, $login_user['name']);
+        $stmt->bindValue(1, $login_user);
         $stmt->bindValue(2, $recipe_name);
         $stmt->bindValue(3, $filename);
         $stmt->bindValue(4, $save_path);

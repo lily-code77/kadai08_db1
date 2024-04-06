@@ -2,6 +2,9 @@
 session_start();
 require_once '../dbconnect.php';
 require_once '../functions.php';
+require_once '../classes/UserLogic.php';
+
+$login_user = $_SESSION['login_user'];
 
 // ファイル関連の取得
 $file          = $_FILES['img'];
@@ -16,6 +19,7 @@ $err_msgs      = array();
 $save_path     = $upload_dir . $save_filename;
 
 // それ以外のinputの取得
+$login_user    = $login_user['name'];
 $recipe_name   = $_POST['recipe_name'];
 $ingredients   = $_POST["ingredients"];
 $instructions  = $_POST["instructions"];
