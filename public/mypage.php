@@ -46,8 +46,8 @@ $files = getAllFile();
             写真(.png、.jpg、.gifのみ対応)：<br>
             <input type="hidden" name="MAX_FILE_SIZE" value="1048576" />
             <input type="file" name="img" accept="image/*"><br>
-            材料：<br><input type="text" name="ingredients" class="input big"><br>
-            作り方：<br><input type="text" name="instructions" class="input big"><br>
+            材料：<br><textarea name="ingredients" class="input big" cols="70" rows="10"></textarea><br>
+            作り方：<br><textarea name="instructions" class="input big" cols="70" rows="10"></textarea><br>
             レシピのエピソード：<br><textarea name="episode" id="textarea" cols="70" rows="10"></textarea><br>
         </div>
         <button class="b" type="submit">作成</button>
@@ -56,10 +56,10 @@ $files = getAllFile();
     <div>
         <?php foreach ($files as $file) : ?>
             <img src="<?php echo "{$file['file_path']}"; ?>" alt="" width="200px">
-            <p><?php echo "レシピ名：" . "{$file['recipe_name']}"; ?></p>
-            <p><?php echo "材料：" . "{$file['ingredients']}"; ?></p>
-            <p><?php echo "作り方：" . "{$file['instructions']}"; ?></p>
-            <p><?php echo "レシピのエピソード：" . "{$file['episode']}"; ?></p>
+            <p>レシピ名：<?php echo "{$file['recipe_name']}"; ?></p>
+            <p>材料：<?php echo "<br>" . nl2br("{$file['ingredients']}"); ?></p>
+            <p>作り方：<?php echo "<br>" . nl2br("{$file['instructions']}"); ?></p>
+            <p>レシピのエピソード：<?php echo "<br>" . nl2br("{$file['episode']}"); ?></p>
             <!-- <p><?php echo "{$file['file_path']}"; ?></p> -->
         <?php endforeach; ?>
     </div>
